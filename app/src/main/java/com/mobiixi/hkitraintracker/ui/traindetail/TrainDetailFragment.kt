@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.mobiixi.hkitraintracker.R
@@ -38,7 +37,7 @@ class TrainDetailFragment : BaseFragment() {
         val timetableRows = train.timeTableRows
         Log.d("tracker", "nr of timetablerows: ${timetableRows.size}")
 
-        (activity as AppCompatActivity).supportActionBar?.title = train.trainNumber.toString()
+        updateToolbarTitle(train.trainNumber.toString())
 
         timetableRows[0]?.let {
             startStationTextView.text = it.stationShortCode

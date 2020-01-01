@@ -2,19 +2,36 @@ package com.mobiixi.hkitraintracker.ui.utils
 
 import android.os.CountDownTimer
 import android.util.Log
+import com.mobiixi.hkitraintracker.ui.trainlist.TrainListViewModel
 
-class ScreenRefreshScheduler(private val interval: Long) {
-    private val myTimer = object: CountDownTimer(interval, 1000) {
-        override fun onTick(millisUntilFinished: Long) {
-            Log.d("track", "scheduler fired...")
-        }
+class ScreenRefreshScheduler(private val viewModel: TrainListViewModel) {
 
-        override fun onFinish() {
-            start()
-        }
+    private lateinit var myTimer: CountDownTimer
+
+
+
+    fun start(interval: Long) {
+        Log.d("tracker", "interval is $interval")
+        viewModel.loadTrains()
+        startCountDownTimer(interval)
     }
 
-    fun start() {
+    private fun startCountDownTimer(interval: Long) {
+        myTimer = object: CountDownTimer(interval, interval) {
+            override fun onTick(millisUntilFinished: Long) {
+                Log.d("tracker", "scheduler fired...")
+
+                viewModel.loadTrains()
+
+            }
+
+            override fun onFinish() {
+                // start again
+                Log.d("tracker", "scheduler onFinish, start again")
+                start()
+            }
+        }
+
         myTimer.start()
     }
 }

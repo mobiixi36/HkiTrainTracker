@@ -66,10 +66,11 @@ class TrainListFragment : BaseFragment() {
         setupRecyclerView()
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(TrainListViewModel::class.java)
-
-        viewModel.getTrains(stationCode).observe(viewLifecycleOwner, Observer {trainList ->
+        viewModel.start(stationCode)
+        viewModel.trains.observe(viewLifecycleOwner, Observer {trainList ->
 
             trainList.let {
+                Log.d("tracker", "fragment observed trains!")
                 showTrainList(trainList)
             }
         })

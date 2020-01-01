@@ -1,10 +1,8 @@
 package com.mobiixi.hkitraintracker.dagger.app
 
-import androidx.fragment.app.Fragment
 import com.mobiixi.core.dagger.CoreComponent
 import com.mobiixi.core.dagger.scopes.AppScope
 import com.mobiixi.hkitraintracker.MyApplication
-import com.mobiixi.hkitraintracker.ui.MainActivity
 import com.mobiixi.hkitraintracker.ui.trainlist.TrainListFragment
 import dagger.Component
 
