@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/userInputFragment">
+    <fragment
+        android:id="@+id/userInputFragment"
+        android:name="com.mobiixi.hkitraintracker.ui.userinput.UserInputFragment"
+        android:label="Input station code"
+        tools:layout="@layout/fragment_user_input">
+        <action
+            android:id="@+id/action_userInputFragment_to_trainListFragment"
+            app:destination="@id/trainListFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/trainListFragment"
+        android:name="com.mobiixi.hkitraintracker.ui.trainlist.TrainListFragment"
+        android:label="Train List">
+
+        <action
+            android:id="@+id/action_trainListFragment_to_trainDetailFragment"
+            app:destination="@id/trainDetailFragment" />
+
+        <argument
+            android:name="searchStationCode"
+            app:argType="string"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/trainDetailFragment"
+        android:name="com.mobiixi.hkitraintracker.ui.traindetail.TrainDetailFragment"
+        android:label="Train Detail">
+
+        <argument
+            android:name="train"
+            app:argType="com.mobiixi.core.model.Train"/>
+    </fragment>
+</navigation>

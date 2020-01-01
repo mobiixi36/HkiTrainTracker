@@ -1,0 +1,34 @@
+/**
+ * Centralized versions of dependencies into this file so that we have one place to define one version for a library group.
+ **/
+
+def versions = [:]
+versions.gradle = '3.5.3'
+versions.retrofit = "2.6.3"
+versions.dagger = "2.25.2"
+versions.gson = "2.8.5"
+versions.butterknife = "10.1.0"
+
+def okhttp = [:]
+okhttp.mockwebserver = "3.12.0"
+okhttp.okhttp = "4.2.2"
+versions.okhttp = okhttp
+
+def androidx = [:]
+androidx.core_ktx = "1.1.0"
+androidx.lifecycle_ktx = "2.2.0-rc03"
+androidx.navigation = "2.2.0-rc03"
+versions.androidx = androidx
+
+def android = [:]
+android.lifecycle_extension = "1.1.1"
+versions.android = android
+
+
+
+
+
+
+
+// make it global
+ext.versions = versions

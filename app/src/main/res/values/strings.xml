@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HkiTrainTracker</string>
+    <string name="user_input_hint">Station short code</string>
+    <string name="search">Search</string>
+</resources>
